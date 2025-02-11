@@ -34,3 +34,41 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+```
+family-stories-children-rendering
+
+├─ src
+│  ├─ app
+│  │  ├─ (dashboard)
+│  │  │  ├─ memories
+│  │  │  │  ├─ [id]
+│  │  │  │  │  ├─ _components
+│  │  │  │  │  │  └─ memory-actions
+│  │  │  │  │  │     ├─ delete-action.tsx
+│  │  │  │  │  │     ├─ edit-action.tsx
+│  │  │  │  │  │     └─ share-action.tsx
+│  │  │  │  │  └─ page.tsx
+│  │  │  │  ├─ _components
+│  │  │  │  │  ├─ memory-box.tsx
+│  │  │  │  │  └─ memory-card.tsx
+│  │  │  │  ├─ assembly
+│  │  │  │  │  └─ memories.assembly.tsx
+│  │  │  │  └─ page.tsx
+│  │  ├─ favicon.ico
+│  │  ├─ globals.css
+│  │  ├─ layout.tsx
+│  │  └─ page.tsx
+│  ├─ components
+│  │  └─ ui
+│  │     ├─ button.tsx
+│  │     ├─ card.tsx
+│  │     ├─ dialog.tsx
+│  │     ├─ input.tsx
+│  │     └─ navigation-menu.tsx
+│  └─ lib
+│     └─ utils.ts
+├─ tailwind.config.ts
+└─ tsconfig.json
+
+```

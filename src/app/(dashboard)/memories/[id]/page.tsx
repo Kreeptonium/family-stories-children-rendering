@@ -2,7 +2,8 @@
 import MemoryAssembly from "./assembly/memory.assembly"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2 } from "lucide-react"
-import { use, useEffect, useState } from "react"
+import { useParams } from "next/navigation"
+import {useEffect, useState } from "react"
 
 interface MemoryPageProps {
     params: Promise<{
@@ -45,18 +46,18 @@ const mockMemory: Record<string, Memory> = {
     }
 }
 
-const MemoryPage = ({ params }: MemoryPageProps) => {
-    const { id } = use(params)
+const MemoryPage = () => {
+    const params = useParams<{ id: string }>()
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-    const [memory, setMemory] = useState<Memory>(mockMemory[id])
+    const [memory, setMemory] = useState<Memory>(mockMemory[params.id])
     
 
     useEffect(() => {
         const fetchMemory = async () => {
             try {
                 await new Promise(resolve => setTimeout(resolve, 1000))
-                setMemory(mockMemory[id])
+                setMemory(mockMemory[params.id])
             } catch (error) {
                 setError('Failed to fetch memory')
             } finally {
@@ -64,7 +65,7 @@ const MemoryPage = ({ params }: MemoryPageProps) => {
             }
         }
         fetchMemory()
-    }, [id])
+    }, [params.id])
 
     const handleDelete = async () => {
         try {
